@@ -1,0 +1,8 @@
+<html title="Tapestry Application" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+<body class="container">
+
+<div>TEST APP</div>
+</body>
+
+</html>
