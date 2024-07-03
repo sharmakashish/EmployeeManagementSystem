@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+<t:form t:id="loginForm">
+    <label for="username">Username:</label>
+    <t:textfield t:id="username" value="username" />
+    <br />
+    <label for="password">Password:</label>
+    <t:passwordfield t:id="password" value="password" />
+    <br />
+    <t:submit value="Login" />
+</t:form>
+
+<div t:if="error" class="error-message">
+    <p>${errorMessage}</p>
+</div>
+</body>
+</html>

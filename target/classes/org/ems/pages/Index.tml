@@ -1,8 +1,21 @@
-<html title="Tapestry Application" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<!DOCTYPE html>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+<nav>
+    <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+</nav>
+<div class="popup">
+    <h2>Login Successful!</h2>
+    <p>Welcome back, User!</p>
+</div>
 
-<body class="container">
 
-<div>TEST APP</div>
 </body>
-
 </html>
