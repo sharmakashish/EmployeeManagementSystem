@@ -1,0 +1,25 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<head>
+    <title>Employee Details</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body>
+
+
+<div>
+    <h2>Employee Details</h2>
+
+    <div style="margin-bottom: 10px;">
+        <strong>Name:</strong> ${employee.name}
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <strong>Age:</strong> ${employee.age}
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <strong>Address:</strong> ${employee.address}
+    </div>
+</div>
+</body>
+</html>

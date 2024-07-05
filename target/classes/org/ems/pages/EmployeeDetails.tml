@@ -1,0 +1,31 @@
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<head>
+    <title>Employee Details</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body>
+<nav>
+    <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+</nav>
+<div class="eg">
+    <t:actionlink t:id="newEmployeeLink" t:page="NewEmployee">Add New Employee</t:actionlink>
+
+
+    <t:actionlink t:page="">Add New Employee</t:actionlink>
+    <t:grid source="employees" row="employee">
+
+        <p:IdCell>
+            <t:pagelink page="EmployeeById" context="employee.id">${employee.id}</t:pagelink>
+        </p:IdCell>
+
+        <p:empty>
+            <p>There are no employees to display;  </p>
+        </p:empty>
+    </t:grid>
+</div>
+</body>
+</html>

@@ -40,7 +40,7 @@ public class Login {
 
     Object onSuccessFromLoginForm() {
         if (!error) {
-            return Index.class; // Redirect to home page or any other page upon successful login
+            return EmployeeDetails.class; // Redirect to home page or any other page upon successful login
         }
         return this; // Stay on the same page if there is an error
     }

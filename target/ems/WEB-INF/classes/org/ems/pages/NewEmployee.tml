@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+<head>
+    <title>Add New Employee</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+<div class="navbar">
+    <div class="navbar-brand">EMS</div>
+    <div class="navbar-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Help</a>
+    </div>
+</div>
+<div class="container">
+    <h2>Add New Employee</h2>
+    <t:form t:id="employeeForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <t:textfield t:id="name" value="employee.name" />
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <t:textfield t:id="age" value="employee.age" />
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <t:textfield t:id="address" value="employee.address" />
+        </div>
+        <t:submit value="Save" />
+    </t:form>
+</div>
+</body>
+</html>

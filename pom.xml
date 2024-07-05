@@ -31,11 +31,11 @@
             <version>${tapestry-release-version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-hibernate</artifactId>
-            <version>${tapestry-release-version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.tapestry</groupId>-->
+<!--            <artifactId>tapestry-hibernate</artifactId>-->
+<!--            <version>${tapestry-release-version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -53,6 +53,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring-release-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tapestry</groupId>
+            <artifactId>tapestry5-annotations</artifactId>
+            <version>5.8.6</version>
         </dependency>
     </dependencies>
 

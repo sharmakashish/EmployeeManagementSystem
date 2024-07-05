@@ -1,4 +1,10 @@
+org\ems\entities\Employee.class
 org\ems\pages\Index.class
+org\ems\pages\EmployeeById.class
+org\ems\pages\EmployeeDetails.class
+org\ems\services\AppModule$1.class
+org\ems\services\EmployeeService.class
 org\ems\pages\Login.class
 org\ems\services\AppModule.class
-org\ems\services\AppModule$1.class
+org\ems\services\impl\EmployeeServiceImpl.class
+org\ems\pages\NewEmployee.class
