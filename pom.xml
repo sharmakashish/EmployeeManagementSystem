@@ -10,11 +10,11 @@
     <packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>20</maven.compiler.source>
-        <maven.compiler.target>20</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <tapestry-release-version>5.8.4</tapestry-release-version>
         <spring-release-version>4.3.3.RELEASE</spring-release-version>
-        <postgresql-version>42.7.3</postgresql-version>
+        <postgresql-release-version>42.7.3</postgresql-release-version>
     </properties>
 
     <dependencies>
@@ -31,16 +31,16 @@
             <version>${tapestry-release-version}</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.tapestry</groupId>-->
-<!--            <artifactId>tapestry-hibernate</artifactId>-->
-<!--            <version>${tapestry-release-version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.tapestry</groupId>
+            <artifactId>tapestry-hibernate</artifactId>
+            <version>${tapestry-release-version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>${postgresql-version}</version>
+            <version>${postgresql-release-version}</version>
         </dependency>
 
         <dependency>
@@ -49,15 +49,36 @@
             <version>${spring-release-version}</version>
         </dependency>
 
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring-release-version}</version>
         </dependency>
+
         <dependency>
-            <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry5-annotations</artifactId>
-            <version>5.8.6</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
         </dependency>
     </dependencies>
 

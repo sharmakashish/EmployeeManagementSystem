@@ -117,3 +117,21 @@ nav a.active {
                 -webkit-border-radius: 6px;
                 -mox-border-radius: 6px;
 }
+.company-header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.company-header h1 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.company-header p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+

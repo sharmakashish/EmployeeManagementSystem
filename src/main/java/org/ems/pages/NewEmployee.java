@@ -1,4 +1,3 @@
-// src/main/java/org/ems/pages/NewEmployee.java
 package org.ems.pages;
 
 import org.apache.tapestry5.annotations.Property;
@@ -12,6 +11,9 @@ import org.apache.tapestry5.alerts.AlertManager;
 
 public class NewEmployee {
     @Property
+    private Long id;
+
+    @Property
     private Employee employee = new Employee();
 
     @Inject
@@ -21,26 +23,51 @@ public class NewEmployee {
     private Form employeeForm;
 
     @Inject
-    private ComponentResources componentResources;
-
-    @Inject
     private AlertManager alertManager;
 
     void onValidateFromEmployeeForm() {
+        // Validate ID
+        if (id == null || id <= 0) {
+            employeeForm.recordError("ID must be a positive number.");
+        } else {
+            try {
+                // Check if the ID is unique
+                for (Employee existingEmployee : employeeService.getAllEmployees()) {
+                    if (existingEmployee.getId().equals(id)) {
+                        employeeForm.recordError("Employee ID must be unique.");
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                employeeForm.recordError("Error checking unique ID: " + e.getMessage());
+            }
+        }
+
+        // Validate name
         if (employee.getName() == null || employee.getName().isEmpty()) {
             employeeForm.recordError("Name is required.");
         }
+
+        // Validate age
         if (employee.getAge() <= 0) {
             employeeForm.recordError("Age must be a positive number.");
         }
+
+        // Validate address
         if (employee.getAddress() == null || employee.getAddress().isEmpty()) {
             employeeForm.recordError("Address is required.");
         }
     }
 
     Object onSuccessFromEmployeeForm() {
-        employeeService.saveEmployee(employee);
-        alertManager.info("Employee added successfully.");
-        return EmployeeDetails.class;
+        try {
+            employee.setId(id);
+            employeeService.saveEmployee(employee);
+            alertManager.info("Employee added successfully.");
+            return EmployeeDetails.class;
+        } catch (IllegalArgumentException e) {
+            employeeForm.recordError(e.getMessage());
+            return this;
+        }
     }
 }

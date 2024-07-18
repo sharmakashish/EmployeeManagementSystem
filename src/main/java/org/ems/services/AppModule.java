@@ -13,6 +13,9 @@ import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.ioc.services.ApplicationDefaults;
 import org.apache.tapestry5.ioc.services.SymbolProvider;
+import org.ems.services.impl.LoginServiceImpl;
+import  org.ems.dao.EmployeeDao;
+import  org.ems.dao.impl.EmployeeDaoImpl;
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -20,9 +23,15 @@ import java.io.IOException;
 public class AppModule {
 
 
-        public static void bind(ServiceBinder binder) {
-            binder.bind(EmployeeService.class, EmployeeServiceImpl.class);
-        }        // Add other service bindings as needed
+    public static void bind(ServiceBinder binder) {
+        binder.bind(EmployeeService.class, EmployeeServiceImpl.class);
+        binder.bind(LoginService.class, LoginServiceImpl.class);
+        binder.bind(EmployeeDao.class, EmployeeDaoImpl.class); // Corrected binding
+        // Add other service bindings as needed
+    }
+
+    // Add other service bindings as needed
+
 
 
     public static void contributeFactoryDefaults(MappedConfiguration<String, Object> configuration) {

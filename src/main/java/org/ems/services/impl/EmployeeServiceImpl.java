@@ -1,46 +1,36 @@
 package org.ems.services.impl;
 
-import org.ems.entities.Employee;
 import org.ems.services.EmployeeService;
-
-import java.util.ArrayList;
+import org.ems.dao.EmployeeDao;
+import org.ems.entities.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
-
-    private List<Employee> employees = new ArrayList<>();
-
-    public EmployeeServiceImpl() {
-        // Initialize some sample data
-        employees.add(new Employee(1L, "Kashish", 24, "Punjab"));
-        employees.add(new Employee(2L, "Simran", 24, "Canada"));
-        employees.add(new Employee(3L, "Dennis", 35, "America"));
-    }
+    @Autowired
+    private EmployeeDao employeeDAO;
 
     @Override
-    public List<Employee> getAllEmployees() {
-        return employees;
-    }
-
-    @Override
-    public Employee getEmployeeById(Long id) {
-        for (Employee employee : employees) {
-            if (employee.getId().equals(id)) {
-                return employee;
-            }
-        }
-        return null;  // Return null if no employee found with given id
-    }
-
-    @Override
-    public void addEmployee(Employee employee) {
-        employees.add(employee);
-    }
-
-    @Override
+    @Transactional
     public void saveEmployee(Employee employee) {
-        // Simulating database auto-increment id for simplicity
-        employee.setId((long) (employees.size() + 1));
-        employees.add(employee);
+        employeeDAO.save(employee);
     }
-}
+
+    @Override
+    @Transactional
+    public Employee getEmployeeById(Long id) {
+        return employeeDAO.findById(id);
+    }
+
+    @Override
+    @Transactional
+    public List<Employee> getAllEmployees() {
+        return employeeDAO.findAll();
+    }
+
+
+    }
+

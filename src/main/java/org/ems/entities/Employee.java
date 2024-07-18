@@ -1,20 +1,27 @@
 // src/main/java/com/example/entities/Employee.java
 package org.ems.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="employee")
 public class Employee {
+    @Id
     private Long id;
     private String name;
     private int age;
     private String address;
+    private String username;
 
-    // Constructor, Getters, and Setters
-    public Employee() {
+    private String password;
+
+    public String getPassword() {
+        return password;
     }
-    public Employee(Long id, String name, int age, String address) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.address = address;
+
+    public Employee() {
     }
 
     public Long getId() {
@@ -47,5 +54,30 @@ public class Employee {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Employee(Long id, String name, int age, String address, String username, String password) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.username = username;
+        this.password = password;
+    }
+    public boolean isValidCredentials(String enteredUsername, String enteredPassword) {
+        return this.username.equals(enteredUsername) && this.password.equals(enteredPassword);
     }
 }

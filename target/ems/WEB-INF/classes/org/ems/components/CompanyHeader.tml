@@ -1,0 +1,33 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+     <style>
+         body, html {
+             margin: 0;
+             padding: 0;
+         }
+
+         .company-header {
+             background-color: #f0f0f0;
+             padding: 20px;
+             text-align: center;
+             margin: 0;
+         }
+
+         .company-header h1 {
+             font-size: 36px;
+             color: #333;
+             margin: 0;
+         }
+
+         .company-header p {
+             font-size: 18px;
+             color: #666;
+             margin: 0;
+             margin-top: 10px;
+         }
+     </style>
+
+     <div class="company-header">
+          <h1>${companyName}</h1>
+          <p>${companyAddress}</p>
+     </div>
+</t:container>

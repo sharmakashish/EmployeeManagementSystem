@@ -1,6 +1,8 @@
 package org.ems.pages;
 
-public class Index {
+import org.apache.tapestry5.annotations.Component;
+import org.ems.components.CompanyHeader;
 
+public class Index {
 
 }

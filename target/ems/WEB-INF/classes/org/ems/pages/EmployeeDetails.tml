@@ -1,8 +1,14 @@
-
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tapestry:parameter ">
 <head>
     <title>Employee Details</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <style>
+        .right-align {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 <nav>
@@ -12,10 +18,10 @@
     <a href="#about">About</a>
 </nav>
 <div class="eg">
-    <t:actionlink t:id="newEmployeeLink" t:page="NewEmployee">Add New Employee</t:actionlink>
+    <div class="right-align">
+        <t:actionlink t:id="newEmployeeLink" t:page="NewEmployee" class="btn btn-primary">Add New Employee</t:actionlink>
+    </div>
 
-
-    <t:actionlink t:page="">Add New Employee</t:actionlink>
     <t:grid source="employees" row="employee">
 
         <p:IdCell>
@@ -23,7 +29,7 @@
         </p:IdCell>
 
         <p:empty>
-            <p>There are no employees to display;  </p>
+            <p>There are no employees to display; </p>
         </p:empty>
     </t:grid>
 </div>

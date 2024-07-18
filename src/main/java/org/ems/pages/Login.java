@@ -5,6 +5,9 @@ import java.util.Map;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.ems.services.LoginService;
+
+import javax.inject.Inject;
 
 public class Login {
 
@@ -22,21 +25,31 @@ public class Login {
 
     @Property
     private String errorMessage;
+    @Inject
+    private LoginService loginService;
 
-    private static final Map<String, String> USERS = new HashMap<>();
 
-    static {
-        USERS.put("user1", "password1");
-        USERS.put("user2", "password2");
-    }
+//    private static final Map<String, String> USERS = new HashMap<>();
+//
+//    static {
+//        USERS.put("user1", "password1");
+//        USERS.put("user2", "password2");
+//    }
 
-    void onValidateFromLoginForm() {
-        if (!USERS.containsKey(username) || !USERS.get(username).equals(password)) {
-            error = true;
-            errorMessage = "Invalid username or password.";
-            loginForm.recordError("Invalid username or password.");
-        }
-    }
+   void onValidateFromLoginForm() {
+//        if (!USERS.containsKey(username) || !USERS.get(username).equals(password)) {
+//            error = true;
+//            errorMessage = "Invalid username or passwooord.";
+//            loginForm.recordError(errorMessage);
+       if (!loginService.validateLogin(username, password)) {
+           System.out.println(username);
+           System.out.println(password);
+           System.out.println("Error has occured");
+           loginForm.recordError("Invalid username or password");
+
+       }
+//        }
+   }
 
     Object onSuccessFromLoginForm() {
         if (!error) {

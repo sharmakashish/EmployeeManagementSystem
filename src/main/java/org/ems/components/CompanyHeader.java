@@ -8,6 +8,6 @@ public class CompanyHeader {
     private String companyName = "Kane Solutions";
 
     @Property
-    private String companyAddress = " Żebbuġ,Malta";
+    private String companyAddress = "Central business Centre , Mdin road , Żebbuġ,Malta";
 
 }

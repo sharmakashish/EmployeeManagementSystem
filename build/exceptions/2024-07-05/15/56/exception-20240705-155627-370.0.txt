@@ -11,7 +11,7 @@ EXCEPTION STACK:
 
         Exception: org.apache.tapestry5.commons.util.UnknownValueException
           Message: Component EmployeeDetails does not contain embedded component 'NewEmployee'.
-  availableValues: AvailableValues[Embedded components: actionlink, grid, newEmployeeLink, pagelink]
+  availableValues: AvailableValues[Embedded org.ems.components: actionlink, grid, newEmployeeLink, pagelink]
 
   Stack trace:
 
