@@ -20,21 +20,35 @@ public class LoginServiceImpl implements LoginService {
 //        return employeeList.stream()
 //                .anyMatch(emp -> emp.getUsername().equals(username) && emp.getPassword().equals(password));
 //    }
+//    @Override
+//    public boolean validateLogin(String username, String password) {
+//        List<Employee> employeeList = employeeService.getAllEmployees();
+//        System.out.println(employeeList);
+//        System.out.println("userrrrr" + username);
+//        System.out.println("passsss" + password);
+//
+//        // Check if there's any employee with matching username and password
+//        for (Employee employee : employeeList) {
+//            if (employee.getUsername().equals(username) && employee.getPassword().equals(password)) {
+//                return true;
+//            }
+//
+//        }
+//        return false;
+//    }
     @Override
-    public boolean validateLogin(String username, String password) {
-        List<Employee> employeeList = employeeService.getAllEmployees();
-        System.out.println(employeeList);
-        System.out.println("userrrrr" + username);
-        System.out.println("passsss" + password);
+    public Employee validateLogin(String username, String password) {
+        // Fetch all employees (or ideally, query for a specific user)
+        List<Employee> employees = employeeService.getAllEmployees();
 
-        // Check if there's any employee with matching username and password
-        for (Employee employee : employeeList) {
+        // Find the employee with matching username and password
+        for (Employee employee : employees) {
             if (employee.getUsername().equals(username) && employee.getPassword().equals(password)) {
-                return true;
+                return employee; // Return the employee if credentials match
             }
-
         }
-        return false;
+
+        return null; // Return null if no matching employee is found
     }
 }
 

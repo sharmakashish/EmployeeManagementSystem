@@ -1,5 +1,5 @@
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tapestry:parameter ">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="tapestry:parameter">
 <head>
     <title>Employee Details</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -17,19 +17,38 @@
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
 </nav>
+
 <div class="eg">
     <div class="right-align">
         <t:actionlink t:id="newEmployeeLink" t:page="NewEmployee" class="btn btn-primary">Add New Employee</t:actionlink>
     </div>
+    <t:if test="canEdit">
+        <button type="button" class="btn btn-light">
+            <t:pagelink page="EditEmployee" context="employee.id">
+                Edit
+            </t:pagelink>
+        </button>
+    </t:if>
 
-    <t:grid source="employees" row="employee">
+    <t:if test="canDelete" >
+        <button type="button" class="btn btn-light">
+            <t:eventlink t:event="deleteEmployee" context="employee.id">
+                Delete
+            </t:eventlink>
+        </button>
+    </t:if>
 
+    <h1>Employee Details</h1>
+
+    <t:grid source="employees" row="employee" exclude="username, password" add="actions">
         <p:IdCell>
             <t:pagelink page="EmployeeById" context="employee.id">${employee.id}</t:pagelink>
         </p:IdCell>
+        <p:actions>
 
+        </p:actions>
         <p:empty>
-            <p>There are no employees to display; </p>
+            <p>There are no employees to display.</p>
         </p:empty>
     </t:grid>
 </div>

@@ -17,5 +17,8 @@
         <property name="hibernate.format_sql">true</property> <!-- Show SQL formatted -->
 
         <mapping class="org.ems.entities.Employee"/>
+        <mapping class="org.ems.entities.Role"/>
+        <mapping class="org.ems.entities.Permission"/>
+
     </session-factory>
 </hibernate-configuration>

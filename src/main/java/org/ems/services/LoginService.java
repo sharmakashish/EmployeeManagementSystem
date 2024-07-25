@@ -1,6 +1,8 @@
 package org.ems.services;
 
+import org.ems.entities.Employee;
+
 public interface LoginService {
-    boolean validateLogin(String username , String password);
+    Employee validateLogin(String username , String password);
 }
 

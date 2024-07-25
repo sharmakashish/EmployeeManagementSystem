@@ -1,4 +1,3 @@
-// src/main/java/com/example/pages/EmployeeById.java
 package org.ems.pages;
 
 import org.ems.entities.Employee;
@@ -20,5 +19,13 @@ public class EmployeeById {
     void onActivate(Long id) {
         this.id = id;
         this.employee = employeeService.getEmployeeById(id);
+    }
+
+    public boolean hasEditPermission(){
+        return employeeService.hasEditPermit(employee, "edit");
+    }
+
+    public boolean hasDeletePermission(){
+        return employeeService.hasDeletePermit(employee, "delete");
     }
 }

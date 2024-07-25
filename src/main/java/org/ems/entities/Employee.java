@@ -1,9 +1,7 @@
 // src/main/java/com/example/entities/Employee.java
 package org.ems.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="employee")
@@ -17,8 +15,32 @@ public class Employee {
 
     private String password;
 
+    @OneToOne
+    private Role role;
+
     public String getPassword() {
         return password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Employee() {

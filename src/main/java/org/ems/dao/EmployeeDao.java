@@ -7,5 +7,7 @@ public interface EmployeeDao {
     void save(Employee employee);
     Employee findById(Long id);
     List<Employee> findAll();
+    void delete(Employee employee); // Add method to delete employee
+
 
 }

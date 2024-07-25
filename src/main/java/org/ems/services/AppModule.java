@@ -1,13 +1,10 @@
 package org.ems.services;
+import org.apache.tapestry5.http.services.*;
 import org.ems.services.impl.EmployeeServiceImpl;
 
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.commons.MappedConfiguration;
 import org.apache.tapestry5.commons.OrderedConfiguration;
-import org.apache.tapestry5.http.services.Request;
-import org.apache.tapestry5.http.services.RequestFilter;
-import org.apache.tapestry5.http.services.RequestHandler;
-import org.apache.tapestry5.http.services.Response;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
@@ -31,6 +28,10 @@ public class AppModule {
     }
 
     // Add other service bindings as needed
+    @Contribute(RequestHandler.class)
+    public static void contributeRequestHandler(OrderedConfiguration<RequestHandler> configuration) {
+        // Configuration code
+    }
 
 
 
